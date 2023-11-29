@@ -115,7 +115,11 @@ public final class LambdaUtilities {
          *
          * Keep in mind that a map can be iterated through its forEach method
          */
-        return null;
+        Map<K,V> filledMap = new HashMap<>();
+        
+        map.forEach((key,value) -> filledMap.put(key,value.orElse(def.get())) );
+
+        return filledMap;
     }
 
     /**
